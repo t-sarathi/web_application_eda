@@ -24,7 +24,7 @@ st.sidebar.image(background_image, use_column_width=True)
 
 button1=st.sidebar.radio(
     'Select an option',
-    ('Medal Tally','Overall Analysis','Country-wise Analysis','Athelete wise Analysis')
+    ('Medal Tally','Overall Analysis','Country-wise Analysis')
 )
 
 
@@ -129,19 +129,18 @@ if button1=='Country-wise Analysis':
 
 #Athletes wise analysis:
 
-if button1=='Athelete wise Analysis':
-    st.title('Distribution of Age')
-    x1,x2,x3,x4=helper.athletes_age(df)
-    fig = ff.create_distplot([x1, x2, x3, x4], ['Age Distribution', 'Gold Medalist', 'Silver Medalist' ,
+# if button1=='Athelete wise Analysis':
+ #   st.title('Distribution of Age')
+  #  x1,x2,x3,x4=helper.athletes_age(df)
+   # fig = ff.create_distplot([x1, x2, x3, x4], ['Age Distribution', 'Gold Medalist', 'Silver Medalist' ,
                                                 'Bronze Medalist'], show_hist=False, show_rug=False)
-    st.plotly_chart(fig)
+    #st.plotly_chart(fig)
 
     #Male and Female participation over the years
-    st.title("Men Vs Women Participation Over the Years")
-    final = helper.men_vs_women(df)
-    fig = px.line(final, x="Year", y=["Male", "Female"])
-    fig.update_layout(autosize=False, width=1000, height=600)
-    st.plotly_chart(fig)
-
+    #st.title("Men Vs Women Participation Over the Years")
+    #final = helper.men_vs_women(df)
+    #fig = px.line(final, x="Year", y=["Male", "Female"])
+    #fig.update_layout(autosize=False, width=1000, height=600)
+    #st.plotly_chart(fig)
 
 
