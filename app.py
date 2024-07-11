@@ -98,7 +98,7 @@ if button1=='Country-wise Analysis':
     st.title(f' Total Medals won by ___{country}___ over the Years')
 
     newdf=helper.country_wise_analysis(df,country)
-    # plot the gtaph
+    # plot the graph
     fig = px.line(newdf, x="Year", y="Medal")
     fig.layout.yaxis.title = 'Total medals---->'
     fig.layout.xaxis.title = 'Years ---->'
@@ -137,17 +137,10 @@ if button1=='Athelete wise Analysis':
     st.plotly_chart(fig)
 
     #Male and Female participation over the years
-    st.title("Male and Female participation over the years")
-    athlete = df.drop_duplicates(subset=['Name', 'region'])
-    male = athlete[athlete['Sex'] == 'M'].groupby('Year').count()['Sex'].reset_index()
-    female = athlete[athlete['Sex'] == 'F'].groupby('Year').count()['Sex'].reset_index()
-    female = female.rename(columns={'Sex': 'Female'})
-    male = male.rename(columns={'Sex': 'Male'})
-    temp_df = male.merge(female, on='Year')
-    fig = px.line(temp_df, x='Year', y=['Male', 'Female'])
-    fig.layout.yaxis.title = 'Total Participants----->'
-    fig.layout.xaxis.title = 'Years----->'
-
+    st.title("Men Vs Women Participation Over the Years")
+    final = helper.men_vs_women(df)
+    fig = px.line(final, x="Year", y=["Male", "Female"])
+    fig.update_layout(autosize=False, width=1000, height=600)
     st.plotly_chart(fig)
 
 
