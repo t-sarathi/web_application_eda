@@ -133,7 +133,7 @@ if button1=='Country-wise Analysis':
  #   st.title('Distribution of Age')
   #  x1,x2,x3,x4=helper.athletes_age(df)
    # fig = ff.create_distplot([x1, x2, x3, x4], ['Age Distribution', 'Gold Medalist', 'Silver Medalist' ,
-                                                'Bronze Medalist'], show_hist=False, show_rug=False)
+                                                #'Bronze Medalist'], show_hist=False, show_rug=False)
     #st.plotly_chart(fig)
 
     #Male and Female participation over the years
