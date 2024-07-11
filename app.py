@@ -7,6 +7,9 @@ import matplotlib.pyplot as plt
 from PIL import Image
 import plotly.figure_factory as ff
 
+df = pd.read_csv('athlete_events.csv')
+region_df = pd.read_csv('noc_regions.csv')
+
 # Load your image
 st.header("Olympics Data Analysis")
 background_image = Image.open('—Pngtree—olympic day games background_996806.jpg')
@@ -14,7 +17,7 @@ background_image = Image.open('—Pngtree—olympic day games background_996806.
 # Display the image using st.image and adjust the layout
 st.sidebar.image(background_image, use_column_width=True)
 #Call the function which return me the dataframe
-df=initial.initially()
+df=initial.initially(df,region_df)
 
 button1=st.sidebar.radio(
     'Select an option',
