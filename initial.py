@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-def initially():
+def initially(df,region_df):
     #import the data set
     df = pd.read_csv("../sample1/athlete_events.csv")
     region_csv = pd.read_csv("../sample1/noc_regions.csv")
